@@ -1,0 +1,29 @@
+{
+  "name": "log4js-filters",
+  "version": "0.1.0",
+  "description": "Log filters for log4js",
+  "keywords": [
+    "logging",
+    "log",
+    "log4js",
+    "node",
+    "filters"
+  ],
+  "license": "Apache-2.0",
+  "main": "./src/index",
+  "author": "Paul Zhang <paul.zhang4156@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/healthcarelogic/log4js-filters.git"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.1",
+    "jest": "^24.8.0"
+  },
+  "dependencies": {
+    "log4js": "^4.4.0"
+  }
+}

@@ -1,4 +1,6 @@
-# log4js-filters
+# log4js-filters [![Build Status](https://api.travis-ci.com/healthcarelogic/log4js-filters.svg?branch=master)](https://travis-ci.com/healthcarelogic/log4js-filters) [![codecov](https://codecov.io/gh/healthcarelogic/log4js-filters/branch/master/graph/badge.svg)](https://codecov.io/gh/healthcarelogic/log4js-filters)
+
+[![NPM](https://nodei.co/npm/log4js-filters.png)](https://nodei.co/npm/log4js-filters/)
 
 This is a log filtering plugin for [log4js-node](https://log4js-node.github.io/log4js-node/). It checks log object keys against pre-configured words or regex and hide the log content accordingly. See below for an example.
 
@@ -18,25 +20,27 @@ npm install --save log4js-filters
 const { log4js, layout } = require('log4js-filters');
 
 // Add a filter to catch "password" key
-layout.exact.push('password');
+layout.exact = ['password'];
 
 // Add a filter to catch any key containing "email"
-layout.regex.push('email');
+layout.regex = ['email'];
 
 log4js.configure({
   appenders: {
-    out: {
+    stdout: {
       type: 'stdout',
       layout
     },
   },
   categories: {
-    default: { appenders: ['out'], level: 'debug'},
+    default: { appenders: ['stdout'], level: 'debug'},
   },
 });
 
 const logger = log4js.getLogger();
-logger.debug({ username: 'test', password: 'hide-me', userEmail: 'hide-me@example.com' });
+logger.debug({
+  username: 'test', password: 'hide-me', userEmail: 'hide-me@example.com',
+});
 ```
 
 Output:

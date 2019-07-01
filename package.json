@@ -17,9 +17,10 @@
     "url": "git+https://github.com/healthcarelogic/log4js-filters.git"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest && codecov"
   },
   "devDependencies": {
+    "codecov": "^3.5.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.18.0",
@@ -32,5 +33,9 @@
     "url": "https://github.com/healthcarelogic/log4js-filters/issues"
   },
   "homepage": "https://github.com/healthcarelogic/log4js-filters#readme",
-  "browserDependencies": {}
+  "browserDependencies": {},
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+  }
 }

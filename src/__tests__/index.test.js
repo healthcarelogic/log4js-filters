@@ -1,4 +1,6 @@
-const { filter, layout, log4js, match } = require('../index');
+const {
+  filter, layout, log4js, match,
+} = require('../index');
 
 describe('match', () => {
   const testData = {
@@ -51,10 +53,14 @@ describe('match', () => {
     },
   };
 
-  Object.entries(testData).forEach(([name, { expected, key, config }]) =>
-    test(name, () =>
-      expect(match(key, config)).toBe(expected)
-    ));
+  Object.entries(testData)
+    .forEach(
+      ([name, { expected, key, config }]) => test(
+        name, () => expect(
+          match(key, config),
+        ).toBe(expected),
+      ),
+    );
 });
 
 describe('filter', () => {
@@ -96,35 +102,46 @@ describe('filter', () => {
     },
   };
 
-  Object.entries(testData).forEach(([name, { expected, data, config }]) =>
-    test(name, () =>
-      expect(filter(data, config)).toEqual(expected)
-    ));
+  Object.entries(testData)
+    .forEach(
+      ([name, { expected, data, config }]) => test(
+        name, () => expect(
+          filter(data, config),
+        ).toEqual(expected),
+      ),
+    );
 });
 
-describe('layout', () =>
-  test('Example in README', () => {
-    // Add a filter to catch "password" key
-    layout.exact.push('password');
+describe('layout', () => {
+  test(
+    'Example in README', () => {
+      // Add a filter to catch "password" key
+      layout.exact = ['password'];
 
-    // Add a filter to catch any key containing "email"
-    layout.regex.push('email');
+      // Add a filter to catch any key containing "email"
+      layout.regex = ['email'];
 
-    log4js.configure({
-      appenders: {
-        out: {
-          type: 'stdout',
-          layout
+      log4js.configure({
+        appenders: {
+          stdout: {
+            type: 'stdout',
+            layout,
+          },
         },
-      },
-      categories: {
-        default: { appenders: ['out'], level: 'debug' },
-      },
-    });
+        categories: {
+          default: {
+            appenders: ['stdout'],
+            level: 'debug',
+          },
+        },
+      });
 
-    const logger = log4js.getLogger();
-    logger.debug({ username: 'test', password: 'hide-me', userEmail: 'hide-me@example.com' });
+      const logger = log4js.getLogger();
+      logger.debug({
+        username: 'test', password: 'hide-me', userEmail: 'hide-me@example.com',
+      });
 
-    expect(true).toBe(true);
-  })
-);
+      expect(true).toBe(true);
+    },
+  );
+});

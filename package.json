@@ -14,16 +14,23 @@
   "author": "Paul Zhang <paul.zhang4156@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/healthcarelogic/log4js-filters.git"
+    "url": "git+https://github.com/healthcarelogic/log4js-filters.git"
   },
   "scripts": {
     "test": "jest"
   },
   "devDependencies": {
-    "eslint": "^6.0.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.18.0",
     "jest": "^24.8.0"
   },
   "dependencies": {
     "log4js": "^4.4.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/healthcarelogic/log4js-filters/issues"
+  },
+  "homepage": "https://github.com/healthcarelogic/log4js-filters#readme",
+  "browserDependencies": {}
 }

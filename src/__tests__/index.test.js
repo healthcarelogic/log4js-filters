@@ -112,9 +112,8 @@ describe('filter', () => {
     );
 });
 
-describe(
-  'layout',
-  () => test(
+describe('layout', () => {
+  test(
     'Example in README', () => {
       // Add a filter to catch "password" key
       layout.exact = ['password'];
@@ -144,5 +143,5 @@ describe(
 
       expect(true).toBe(true);
     },
-  ),
-);
+  );
+});

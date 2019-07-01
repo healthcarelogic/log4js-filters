@@ -1,4 +1,8 @@
-This is a log filtering plugin for [log4js-node](https://log4js-node.github.io/log4js-node/).
+# log4js-filters
+
+This is a log filtering plugin for [log4js-node](https://log4js-node.github.io/log4js-node/). It checks log object keys against pre-configured words or regex and hide the log content accordingly. See below for an example.
+
+NOTE: Logs have to be of object form. Strings won't get filtered.
 
 ## Installation
 
@@ -9,6 +13,8 @@ npm install --save log4js-filters
 ## Usage
 
 ```javascript
+// Example to filter password and any email in logs.
+
 const { log4js, layout } = require('log4js-filters');
 
 // Add a filter to catch "password" key
@@ -36,13 +42,5 @@ logger.debug({ username: 'test', password: 'hide-me', userEmail: 'hide-me@exampl
 Output:
 
 ```bash
-// [DEBUG] default - { username: 'test', password: '******', userEmail: '******' }
+[DEBUG] default - { username: 'test', password: '******', userEmail: '******' }
 ```
-
-## TODO
-* Vanilla js
-* Minimum version requirements
-* Customizable filtering actions (change to '******' for now)
-* Customizable follow-up layout (basic layout for now)
-* A bit further house keeping
-* v1.0.0

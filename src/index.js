@@ -19,7 +19,7 @@ const match = (key, { exact = [], regex = [] }) => exact.find(
  * Recursively filter log data.
  * If data is of simple type, return as is.
  * If data is an array, filter each element.
- * If data is an object, filter against fields. If not filtered, filter each value.
+ * If data is an object, filter against keys. If not filtered, filter each value.
  *
  * @param {any} data
  * @param {object} config
